@@ -11,6 +11,12 @@ export default defineConfig({
   fastRefresh: {},
   // 配置路由模式
   history: {
-    type: "hash"  //默认是 browser 路由模式
-  }
+    type: 'hash', //默认是 browser 路由模式
+  },
+  proxy: {
+    '/ajax': {
+      target: 'https://m.maoyan.com',
+      changeOrigin: true,
+    },
+  },
 });
