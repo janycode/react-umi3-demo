@@ -9,4 +9,8 @@ export default defineConfig({
   //   { path: '/', component: '@/pages/index' },
   // ],
   fastRefresh: {},
+  // 配置路由模式
+  history: {
+    type: "hash"  //默认是 browser 路由模式
+  }
 });
