@@ -6,6 +6,12 @@ const NavLinkComp = NavLink as any;
 
 // 根组件
 export default function indexLayout(props: any) {
+  if (
+    props.location.pathname === '/city' ||
+    props.location.pathname.includes('/detail')
+  ) {
+    return <div>{props.children}</div>;
+  }
   return (
     <div>
       {props.children}

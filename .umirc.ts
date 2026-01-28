@@ -19,4 +19,8 @@ export default defineConfig({
       changeOrigin: true,
     },
   },
+  // 禁用 umi 自带的 antd 使用自己安装的版本：npm i antd-mobile
+  antd: {
+    mobile: false
+  }
 });
