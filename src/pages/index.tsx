@@ -1,9 +1,9 @@
-import styles from './index.less';
+import React from 'react'
+import { Redirect } from 'umi';
 
-export default function IndexPage() {
-  return (
-    <div>
-      <h1 className={styles.title}>Page index</h1>
-    </div>
-  );
+// 解决：“Redirect”不能用作 JSX 组件。
+const RedirectComp = Redirect as any;
+
+export default function index() {
+  return <RedirectComp to="/film" />;
 }
