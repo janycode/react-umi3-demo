@@ -1,9 +1,10 @@
 import { NavBar, Toast } from 'antd-mobile';
 import { DownOutline, SearchOutline } from 'antd-mobile-icons';
+import { history } from 'umi';
 
-export default function Cinema(props: any) {
+export default function Cinema() {
   const back = () => {
-      props.history.push("/city")
+      history.push("/city")
   }
   return (
     <div>

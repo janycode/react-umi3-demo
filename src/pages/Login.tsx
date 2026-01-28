@@ -15,21 +15,16 @@ export default function Login(props: any) {
   return (
     <div>
       <h1>Login</h1>
-      <input
-        type="text"
-        onChange={(evt) => {
+      <input type="text" onChange={(evt) => {
           setUsername(evt.target.value);
         }}
       />
       <br />
-      <input
-        type="password"
-        onChange={(evt) => {
+      <input type="password" onChange={(evt) => {
           setPassword(evt.target.value);
         }}
       />
-      <button
-        onClick={() => {
+      <button onClick={() => {
           console.log(username, password);
           // mock 登陆
           fetch('/users/login', {
@@ -41,9 +36,7 @@ export default function Login(props: any) {
               username,
               password,
             }),
-          })
-            .then((res) => res.json())
-            .then((res) => {
+          }).then((res) => res.json()).then((res) => {
               console.log(res);
               if (res.ok) {
                 localStorage.setItem('token', 'token123');
