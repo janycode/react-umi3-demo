@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { IndexBar, List } from 'antd-mobile';
+import { connect } from 'umi';
 
-export default function City(props: any) {
+function City(props: any) {
   const [cityList, setCityList] = useState<any>([]);
 
   const filterCity = (cities: any) => {
@@ -43,7 +44,14 @@ export default function City(props: any) {
 
   const changeCity = (item: any) => {
       console.log(item);
-      //todo... 携带城市名称 和 id 到 cinema 页面
+      //集成 dva - 自动注册 src/models/xxx：携带城市名称 和 id 到 cinema 页面
+      props.dispatch({
+          type: 'city/changeCity', //注意命名空间必须携带
+          payload: {
+              cityName: item.name,
+              cityId: item.cityId
+          }
+      });
       props.history.push(`/cinema`)
   };
 
@@ -68,3 +76,5 @@ export default function City(props: any) {
     </div>
   );
 }
+// 集成 dva：使用 connect 增强 City，使其 props 携带 dispatch
+export default connect()(City)

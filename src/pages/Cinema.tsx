@@ -1,18 +1,18 @@
 import { NavBar, Toast } from 'antd-mobile';
 import { DownOutline, SearchOutline } from 'antd-mobile-icons';
-import { history } from 'umi';
+import { connect, history } from 'umi';
 
-export default function Cinema() {
+function Cinema(props: any) {
   const back = () => {
-      history.push("/city")
-  }
+    history.push('/city');
+  };
   return (
     <div>
       <NavBar
         onBack={back}
         back={
           <div>
-            北京
+            {props.cityName}
             <DownOutline />
           </div>
         }
@@ -25,3 +25,13 @@ export default function Cinema() {
     </div>
   );
 }
+
+// 集成 dva：使用高阶函数 connect
+const MapStateToProps = (state: any) => {
+  console.log(state);
+  return {
+    a: 1,
+    cityName: state.city.cityName,
+  };
+};
+export default connect(MapStateToProps)(Cinema);
