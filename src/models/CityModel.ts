@@ -5,8 +5,9 @@ export default {
         cityId: "110100"
     },
     reducers: {
+        // 【同步数据流】放 reducers 中即可被 dispatch
         changeCity(prevState: any, action: any) {
-            console.log('action=', action);
+            console.log('city action=', action);
             return {
                 ...prevState,
                 cityName: action.payload.cityName,
